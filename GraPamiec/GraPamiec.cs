@@ -15,10 +15,15 @@ namespace GraPamiec
 {
     public partial class GraPamiec : Form
     {
+        public Karta karta1;
+        public Karta karta2;
+
         public GraPamiec()
         {
             InitializeComponent();
-            UzupelnijPanel();            
+            UzupelnijPanel();
+            panelGry.Enabled = false;
+            timerPodglad.Start();
         }
 
         public List<Karta> GenerujKarty()
@@ -65,8 +70,60 @@ namespace GraPamiec
         private void KartaClicked(object sender, EventArgs e)
         {
             var karta = (Karta)sender;
-            MessageBox.Show(karta.Id.ToString());
-            karta.Zakryj();
+
+            if (karta1 == null)
+            {
+                karta1 = karta;
+                karta1.Odkryj();
+                karta1.Enabled = false;
+            }
+            else
+            {
+                karta2 = karta;
+                karta2.Odkryj();
+                karta2.Enabled = false;
+
+                if (karta1.Id == karta2.Id)
+                {
+                    karta1 = null;
+                    karta2 = null;
+                }
+                else
+                {
+                    panelGry.Enabled = false;
+                    timerZakrywacz.Start();
+                }
+            }
+
+        }
+
+        private void timerPodglad_Tick(object sender, EventArgs e)
+        {
+            foreach (var kontrolka in panelGry.Controls)
+            {
+                var karta = (Karta)kontrolka;
+                karta.Zakryj();
+            }
+
+            timerPodglad.Stop();
+
+            panelGry.Enabled = true;
+        }
+
+        private void timerZakrywacz_Tick(object sender, EventArgs e)
+        {
+            karta1.Enabled = true;
+            karta2.Enabled = true;
+
+            karta1.Zakryj();
+            karta2.Zakryj();
+
+            karta1 = null;
+            karta2 = null;
+
+            timerZakrywacz.Stop();
+
+            panelGry.Enabled = true;
         }
     }
 }

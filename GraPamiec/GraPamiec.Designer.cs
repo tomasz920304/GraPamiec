@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelGry = new System.Windows.Forms.Panel();
+            this.timerPodglad = new System.Windows.Forms.Timer(this.components);
+            this.timerZakrywacz = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // panelGry
@@ -39,6 +42,16 @@
             this.panelGry.Name = "panelGry";
             this.panelGry.Size = new System.Drawing.Size(600, 600);
             this.panelGry.TabIndex = 0;
+            // 
+            // timerPodglad
+            // 
+            this.timerPodglad.Interval = 6000;
+            this.timerPodglad.Tick += new System.EventHandler(this.timerPodglad_Tick);
+            // 
+            // timerZakrywacz
+            // 
+            this.timerZakrywacz.Interval = 1000;
+            this.timerZakrywacz.Tick += new System.EventHandler(this.timerZakrywacz_Tick);
             // 
             // GraPamiec
             // 
@@ -56,6 +69,8 @@
         #endregion
 
         private System.Windows.Forms.Panel panelGry;
+        private System.Windows.Forms.Timer timerPodglad;
+        private System.Windows.Forms.Timer timerZakrywacz;
     }
 }
 
