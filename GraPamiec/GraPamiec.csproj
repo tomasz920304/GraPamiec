@@ -52,9 +52,7 @@
     <Compile Include="GraPamiec.Designer.cs">
       <DependentUpon>GraPamiec.cs</DependentUpon>
     </Compile>
-    <Compile Include="Klasy\Karta.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Klasy\Karta.cs" />
     <Compile Include="Klasy\ObrazkiRepozytorium.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

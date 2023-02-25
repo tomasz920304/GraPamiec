@@ -18,18 +18,8 @@ namespace GraPamiec
         public GraPamiec()
         {
             InitializeComponent();
-            UzupelnijPanel();            
-        }
-
-        public void UzupelnijPanel()
-        {
-            var karta = new Karta(Guid.Empty, ObrazkiRepozytorium.PobierzObrazki()[0]);
-
-            karta.Location = new Point(0, 0);
-
-            karta.Zakryj();
-
-            panelGry.Controls.Add(karta);
+            var id = Guid.NewGuid();
+            MessageBox.Show(id.ToString());
         }
     }
 }
