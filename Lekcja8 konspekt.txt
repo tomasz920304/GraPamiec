@@ -1,0 +1,10 @@
+1) timer czas podglądu
+2) MessageBox co 6 sek
+3) tymczasowe właściwości karta1 i karta2
+4) wytłumaczenie co to jest null
+5) if na karta1 else na karta2
+6) if na takie same karty else na różne karty
+6) blokowanie i odblokowanie panelu gry na starcie
+7) blokowanie karty po odkryciu
+8) odblokowanie karty po zakryciu
+9) jak zaprogramować wygraną
