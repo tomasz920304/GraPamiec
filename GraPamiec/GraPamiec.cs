@@ -18,8 +18,6 @@ namespace GraPamiec
         public GraPamiec()
         {
             InitializeComponent();
-            var id = Guid.NewGuid();
-            MessageBox.Show(id.ToString());
         }
     }
 }
